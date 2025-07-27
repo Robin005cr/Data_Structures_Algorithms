@@ -1,6 +1,6 @@
 /*
 * project   : https://github.com/Robin005cr/Data_Structures_Algorithms
-* file name : make_tuple.cpp
+* file name : iterators1.cpp
 * author    : Robin CR
 * mail id   : robinchovallurraju@gmail.com
 * LinkedIn  : https://www.linkedin.com/in/robin-cr/
@@ -12,18 +12,29 @@
 *
 */
 #include <iostream>
-#include <tuple>
-#include <string>
+#include <list>
 using namespace std;
+
+class ObjectInfo
+{
+public:
+    double x, y, z;
+
+    ObjectInfo(double x_, double y_, double z_) : x(x_), y(y_), z(z_) {}
+};
 int main()
 {
-    
-    auto myTuple = std::make_tuple(1, 2.5, std::string("Hello"));
+    list<ObjectInfo> objList = {
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0},
+        {7.0, 8.0, 9.0}
+    };
 
-    int myInt = std::get<0>(myTuple);          // myInt = 1
-    double myDouble = std::get<1>(myTuple);    // myDouble = 2.5
-    std::string myString = std::get<2>(myTuple); // myString = "Hello"
+    // Iterator-based loop
+    for (list<ObjectInfo>::iterator it = objList.begin(); it != objList.end(); ++it)
+    {
+        cout << "x: " << it->x << ", y: " << it->y << ", z: " << it->z << endl;
+    }
 
-    cout << "Tuple contains: " << myInt << ", " << myDouble << ", " << myString << endl;
-return 0;
+    return 0;
 }
