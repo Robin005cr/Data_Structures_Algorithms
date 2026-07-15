@@ -1,6 +1,6 @@
 /*
 * project   : https://github.com/Robin005cr/Data_Structures_Algorithms
-* file name : set_print_iterator.cpp
+* file name : set_operations.cpp
 * author    : Robin CR
 * mail id   : robinchovallurraju@gmail.com
 * LinkedIn  : https://www.linkedin.com/in/robin-cr/
@@ -19,12 +19,16 @@ int main()
 {
     set<int> myset = {5, 2, 9, 1};
 
-    // Using a print iterator to display the set elements
-    for (auto it = myset.begin(); it != myset.end(); ++it)
-    {
-        cout << *it << " ";
-    }
-    cout << endl;
+    // Acessing elements: Note index access won't work in sets
 
+    auto itr = next(myset.begin(), 2); // internally it will store as [1,2,5,9]
+    cout << *itr << endl;
+    // myset.begin() returns an iterator to the first element
+    // next(myset.begin(), 2) advances the iterator by two positions
+    // The value pointed to by the iterator is printed
+
+    // Deleting elements
+
+    myset.erase(5); // this will return an iterator 1 if its able to erase it successfully
     return 0;
 }
