@@ -20,6 +20,7 @@ int main() {
     cout << "Initial: size=" << vec.size() << ", capacity=" << vec.capacity() << '\n';  // 0, 0
 
     vec.reserve(10);  // Reserve space for 10 ints
+    // vec[0] = 10; // will lead to UB
     cout << "After reserve(10): size=" << vec.size() << ", capacity=" << vec.capacity() << '\n';  // 0, >=10
 
     for (int i = 0; i < 10; ++i) {
